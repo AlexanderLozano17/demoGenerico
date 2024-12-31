@@ -19,49 +19,43 @@ public interface BaseService <E extends BaseEntity, ID extends Serializable> {
 	/**
 	 * 
 	 * @return
-	 * @throws Exception
 	 */
-	public Optional<List<E>> findAll() throws Exception;
+	public Optional<List<E>> findAll();
 	
 	/**
 	 * 
 	 * @param pageable
 	 * @return
-	 * @throws Exception
 	 */
-	public Optional<Page<E>> findAll(Pageable pageable) throws Exception;
+	public Optional<Page<E>> findAll(Pageable pageable);
 	
 	/**
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception
 	 */
-	public Optional<E> findById(ID id) throws Exception;
+	public Optional<E> findById(ID id);
 	
 	/**
 	 * 
 	 * @param entity
 	 * @return
-	 * @throws Exception
 	 */
-	public Optional<E> save(E entity) throws Exception;
+	public Optional<E> save(E entity);
 	
 	/**
 	 * 
 	 * @param id
 	 * @param entity
 	 * @return
-	 * @throws Exception
 	 */
-	public Optional<E> update(ID id, E entity) throws Exception;
+	public Optional<E> update(ID id, E entity);
 	
 	/**
 	 * 
 	 * @param id
 	 * @return
-	 * @throws Exception
 	 */
-	public Boolean delete(ID id) throws Exception;
+	public Boolean delete(ID id);
 	
 }

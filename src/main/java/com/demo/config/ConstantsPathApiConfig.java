@@ -12,10 +12,10 @@ package com.demo.config;
  * El constructor privado impide la creación de instancias de esta clase, asegurando
  * que sus miembros sean accesibles solo a través de las constantes definidas.
  */
-public final class ConstantesPathApiConfig {
+public final class ConstantsPathApiConfig {
     
     // Constructor privado para evitar instanciación
-    private ConstantesPathApiConfig () {
+    private ConstantsPathApiConfig () {
         // Constructor vacío, no permite la creación de instancias
     }
 

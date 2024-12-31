@@ -3,10 +3,6 @@ package com.demo.helperEntities;
 import java.io.Serializable;
 import java.util.List;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 public class ApiResponseHelperEntity<T> implements Serializable {
 	
 	private static final long serialVersionUID = 1L;

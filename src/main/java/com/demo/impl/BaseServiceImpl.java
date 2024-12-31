@@ -24,73 +24,47 @@ public abstract class BaseServiceImpl <E extends BaseEntity, ID extends Serializ
 
 	@Override
 	@Transactional(readOnly = true)
-	public Optional<List<E>> findAll() throws Exception {		
-		try {
-			return Optional.ofNullable(this.baseRepository.findAll());
-		} catch (Exception e) {
-			throw new Exception(e.getMessage());
-		}		
+	public Optional<List<E>> findAll() {		
+		return Optional.ofNullable(this.baseRepository.findAll());	
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public Optional<Page<E>> findAll(Pageable pageable) throws Exception {
-		try {
-			return Optional.ofNullable(this.baseRepository.findAll(pageable));
-		} catch (Exception e) {
-			throw new Exception(e.getMessage());
-		}	
+	public Optional<Page<E>> findAll(Pageable pageable) {
+		return Optional.ofNullable(this.baseRepository.findAll(pageable));
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public Optional<E> findById(ID id) throws Exception {
-		try {
-			return this.baseRepository.findById(id);
-		} catch (Exception e) {
-			throw new Exception(e.getMessage());
-		}	
+	public Optional<E> findById(ID id) {
+		return this.baseRepository.findById(id);	
 	}
 
 	@Override
 	@Transactional
-	public Optional<E> save(E entity) throws Exception {
-		try {
-			return Optional.ofNullable(this.baseRepository.save(entity));
-		} catch (Exception e) {
-			throw new Exception(e.getMessage());
-		}	
+	public Optional<E> save(E entity) {
+		return Optional.ofNullable(this.baseRepository.save(entity));	
 	}
 
 	@Override
 	@Transactional
-	public Optional<E> update(ID id, E entity) throws Exception {
-		try {			
-			Optional<E> entityOptional = this.baseRepository.findById(id);
-			if (this.baseRepository.existsById(id)) {
-				E entityUpdate = entityOptional.get();
-				entityUpdate = this.baseRepository.save(entity);
-				return Optional.ofNullable(entityUpdate);
-			}
-			return Optional.empty();
-			
-		} catch (Exception e) {
-			throw new Exception(e.getMessage());
-		}	
+	public Optional<E> update(ID id, E entity) {			
+		Optional<E> entityOptional = this.baseRepository.findById(id);
+		if (this.baseRepository.existsById(id)) {
+			E entityUpdate = entityOptional.get();
+			entityUpdate = this.baseRepository.save(entity);
+			return Optional.ofNullable(entityUpdate);
+		}
+		return Optional.empty();
 	}
 
 	@Override
 	@Transactional
-	public Boolean delete(ID id) throws Exception {
-		try {
-			if (this.baseRepository.existsById(id)) {
-				this.baseRepository.deleteById(id);
-				return true;
-			}
-			return false;
-		} catch (Exception e) {
-			throw new Exception(e.getMessage());
-		}	
+	public Boolean delete(ID id) {
+		if (this.baseRepository.existsById(id)) {
+			this.baseRepository.deleteById(id);
+			return true;
+		}
+		return false;
 	}
-
 }
