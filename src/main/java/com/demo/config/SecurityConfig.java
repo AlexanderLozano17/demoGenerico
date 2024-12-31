@@ -94,11 +94,4 @@ public class SecurityConfig {
         return provider;
     }
 
-    /**
-     * Configuración de filtros de seguridad adicionales (si es necesario)
-     */
-    @Bean
-    public UsernamePasswordAuthenticationFilter usernamePasswordAuthenticationFilter() {
-        return new UsernamePasswordAuthenticationFilter();
-    }
 }
