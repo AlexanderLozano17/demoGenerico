@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @MappedSuperclass
 public class BaseEntity implements Serializable {
@@ -21,9 +23,11 @@ public class BaseEntity implements Serializable {
 	private Long id;
 	
 	@Column(name = "created_date", nullable = false, updatable = false)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdDate;
 
     @Column(name = "updated_date")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date updatedDate;
         
     public BaseEntity() {
