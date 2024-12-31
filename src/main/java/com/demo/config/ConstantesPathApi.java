@@ -2,6 +2,10 @@ package com.demo.config;
 
 public final class ConstantesPathApi {
 	
+	private ConstantesPathApi () {
+		// Constructor privado para evitar instanciación
+	}
+	
 	private static final String DEMO = "demo_";
 	
 	/********************************************************************************
