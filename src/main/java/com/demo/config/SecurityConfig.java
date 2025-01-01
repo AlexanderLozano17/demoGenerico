@@ -36,11 +36,9 @@ public class SecurityConfig {
         // Habilitar CSRF solo si es necesario en tu aplicación, en aplicaciones sin estado suele ser innecesario
     	http.csrf(csrf -> csrf.disable()) // Deshabilitar CSRF si no es necesario (para aplicaciones REST)
         .authorizeHttpRequests(requests -> requests
-            .requestMatchers(HttpMethod.GET, "/public/**").permitAll()  // Acceso público a ciertas rutas
-            .requestMatchers("/api/admin/**").hasRole("ADMIN")  // Rutas protegidas para administradores
-            .requestMatchers("/admin/**").hasRole("ADMIN")  // Rutas protegidas para administradores
+            .requestMatchers(HttpMethod.GET, "api/public/**").permitAll()  // Acceso público a ciertas rutas
+            .requestMatchers("/api/admin/**").hasRole("ADMIN") // Rutas protegidas para administradores
             .requestMatchers("/api/user/**").hasRole("USER")  // Rutas protegidas para usuarios
-            .requestMatchers("/user/**").hasRole("USER")  // Rutas protegidas para usuarios
             .anyRequest().authenticated())  // Requiere autenticación para cualquier otra solicitud
 
         // Configuración del login
