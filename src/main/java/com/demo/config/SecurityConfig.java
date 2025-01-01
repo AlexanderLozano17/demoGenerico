@@ -34,26 +34,32 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         // Habilitar CSRF solo si es necesario en tu aplicación, en aplicaciones sin estado suele ser innecesario
-        http.csrf(csrf -> csrf.disable())
-            .authorizeHttpRequests(requests -> requests
-                .requestMatchers(HttpMethod.GET, "/public/**").permitAll()  // Acceso público a ciertas rutas
-                .requestMatchers("/api/admin/**").hasRole("ADMIN")  // Rutas protegidas para administradores
-                .requestMatchers("/admin/**").hasRole("ADMIN")  // Rutas protegidas para administradores
-                .requestMatchers("/api/user/**").hasRole("USER")  // Rutas protegidas para usuarios
-                .requestMatchers("/user/**").hasRole("USER")  // Rutas protegidas para usuarios
-                .anyRequest().authenticated())  // Requiere autenticación para cualquier otra solicitud
-            .formLogin(login -> login
-                .loginPage("/login")  // Página de login personalizada
-                .loginProcessingUrl("/login")  // URL de procesamiento de login
-                .permitAll())
-            .logout(logout -> logout
-                .logoutUrl("/logout")  // URL para logout
-                .invalidateHttpSession(true)  // Invalidar sesión al hacer logout
-                .permitAll())
-            .exceptionHandling(handling -> handling
-                .accessDeniedPage("/access-denied"));  // Página de error de acceso denegado
+    	http.csrf(csrf -> csrf.disable()) // Deshabilitar CSRF si no es necesario (para aplicaciones REST)
+        .authorizeHttpRequests(requests -> requests
+            .requestMatchers(HttpMethod.GET, "/public/**").permitAll()  // Acceso público a ciertas rutas
+            .requestMatchers("/api/admin/**").hasRole("ADMIN")  // Rutas protegidas para administradores
+            .requestMatchers("/admin/**").hasRole("ADMIN")  // Rutas protegidas para administradores
+            .requestMatchers("/api/user/**").hasRole("USER")  // Rutas protegidas para usuarios
+            .requestMatchers("/user/**").hasRole("USER")  // Rutas protegidas para usuarios
+            .anyRequest().authenticated())  // Requiere autenticación para cualquier otra solicitud
 
-        return http.build();
+        // Configuración del login
+        .formLogin(login -> login
+            .loginPage("/login")  // Página de login personalizada
+            .loginProcessingUrl("/login")  // URL de procesamiento de login
+            .permitAll())  // Permitir acceso sin autenticación
+
+        // Configuración del logout
+        .logout(logout -> logout
+            .logoutUrl("/logout")  // URL para logout
+            .invalidateHttpSession(true)  // Invalidar sesión al hacer logout
+            .permitAll())  // Permitir logout sin autenticación
+
+        // Configuración de manejo de excepciones (página de acceso denegado)
+        .exceptionHandling(handling -> handling
+            .accessDeniedPage("/access-denied"));  // Página de error de acceso denegado
+
+    	return http.build();  // Construir y retornar la configuración
     }
 
 
