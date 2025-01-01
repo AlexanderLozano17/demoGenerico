@@ -43,6 +43,5 @@ Thumbs.db
 /test-logs/
 
 # Local configuration files
-*.properties
 *.yml
 application-*.yml
