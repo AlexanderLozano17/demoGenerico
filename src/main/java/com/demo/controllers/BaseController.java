@@ -39,7 +39,7 @@ public abstract class BaseController <E extends BaseEntity, S extends BaseServic
 	protected S servicio;
 	
 	@GetMapping
-	public ResponseEntity<ApiResponseHelperEntity> finAll() {
+	public ResponseEntity<ApiResponseHelperEntity> findAll() {
 		LOGGER.debug("init finAll");
 		
 		Optional<List<E>> listDatosOptional = this.servicio.findAll();

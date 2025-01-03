@@ -20,36 +20,36 @@ public final class ConstantsPathApiConfig {
     }
 
     // Prefijo base para todas las rutas de la API
-    private static final String DEMO = "demo_";
+    public static final String DEMO = "demo_generico";
     
     /********************************************************************************
      *           RUTAS DE VERSIONES DE LA API
-     ********************************************************************************/
-    private static final String V1_CONTROLLER = DEMO.concat("api/v1/");
-    private static final String V2_CONTROLLER = DEMO.concat("api/v2/");
-    
-    private static final String V1_SERVICE = DEMO.concat("v1_Service");
-    private static final String V2_SERVICE = DEMO.concat("v2_Service");
-    
-    private static final String V1_REPOSITORY = DEMO.concat("v1_Repository");
-    private static final String V2_REPOSITORY = DEMO.concat("v2_Repository");
+     ********************************************************************************/    
+    private static final String SERVICE = "service_";    
+    private static final String REPOSITORY = "repository_";    
+    private static final String CONTROLLER_V1 = "api/v1";
+    private static final String CONTROLLER_V2 = "api/v2";
     
     /********************************************************************************
      *           NOMBRE ÚNICO SERVICIO, CONTROLADOR Y REPOSITORIO PARA LA VERSION 1
      ********************************************************************************/
     
     /**
-     * Rutas de controlador para la versión 1 (V1)
+     * Rutas de servicio para la versión 1 (V1)
      */
-    private static final String PATH_CONTROLLER_PERSONAS_V1 = V1_CONTROLLER.concat("personas");
+    public static final String PATH_SERVICE_USER_V1 = SERVICE + "user";
+    public static final String PATH_SERVICE_PERSON_V1 = SERVICE + "person";
     
     /**
      * Rutas de repositorio para la versión 1 (V1)
      */
-    private static final String PATH_REPOSITORY_PERSONAS_V1 = V1_SERVICE.concat("personas");
+    public static final String PATH_REPOSITORY_USER = REPOSITORY + "user";
+    public static final String PATH_REPOSITORY_PERSON = REPOSITORY  + "person";
     
     /**
-     * Rutas de servicio para la versión 1 (V1)
+     * Rutas de controlador para la versión 1 (V1)
      */
-    private static final String PATH_SERVICE_PERSONAS_V1 = V1_REPOSITORY.concat("personas");
+    public static final String PATH_CONTROLLER_USER_V1 = CONTROLLER_V1 + "/user";
+    public static final String PATH_CONTROLLER_PERSON_V1 = CONTROLLER_V2 + "/person";    
+           
 }
