@@ -8,6 +8,6 @@ import org.springframework.data.repository.NoRepositoryBean;
 import com.demo.entities.BaseEntity;
 
 @NoRepositoryBean
-public interface BaseRepository <E extends BaseEntity,  ID extends Serializable> extends JpaRepository<E, ID> {
+public interface BaseRepository<E extends BaseEntity, ID extends Serializable> extends JpaRepository<E, ID> {
 
 }

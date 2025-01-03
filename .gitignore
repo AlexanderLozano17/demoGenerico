@@ -45,3 +45,6 @@ Thumbs.db
 # Local configuration files
 *.yml
 application-*.yml
+
+# paquetes
+.gz

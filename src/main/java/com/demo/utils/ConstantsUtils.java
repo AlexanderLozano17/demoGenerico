@@ -34,5 +34,5 @@ public class ConstantsUtils {
 	public static final String MESSAGE_CONFLICT = "Violación de integridad de datos. ";
 	public static final String MESSAGE_FORBIDDEN = "Acceso denegado. No tiene permisos suficientes. ";
     public static final String MESSAGE_INTERNAL_SERVER_ERROR = "Error en el servidor. Por favor, inténtelo más tarde. Detalles: ";
-	    
+    public static final String MESSAGE_ERROR_ENTITYMANAGER = "EntityManager no está configurado correctamente.";
 }
