@@ -8,7 +8,7 @@ package com.demo.utils;
  * centralizar las variables que no son de configuración y se utilizan en diferentes partes de la
  * aplicación, mejorando la mantenibilidad del código al evitar la duplicación de contenido
  */
-public class ConstantsUtils {
+public final class ConstantsUtils {
 
     private ConstantsUtils() {
     	// Constructor privado para evitar instanciación

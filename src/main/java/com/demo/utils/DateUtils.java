@@ -1,6 +1,6 @@
 package com.demo.utils;
 
-public class DateUtils {
+public final class DateUtils {
 
     private DateUtils() {
     	// Constructor privado para evitar instanciación

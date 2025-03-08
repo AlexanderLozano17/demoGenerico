@@ -50,6 +50,6 @@ public final class ConstantsPathApiConfig {
      * Rutas de controlador para la versión 1 (V1)
      */
     public static final String PATH_CONTROLLER_USER_V1 = CONTROLLER_V1 + "/user";
-    public static final String PATH_CONTROLLER_PERSON_V1 = CONTROLLER_V2 + "/person";    
+    public static final String PATH_CONTROLLER_PERSON_V1 = CONTROLLER_V1 + "/person";    
            
 }

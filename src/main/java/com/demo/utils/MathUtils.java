@@ -1,6 +1,6 @@
 package com.demo.utils;
 
-public class MathUtils {
+public final class MathUtils {
 
     private MathUtils() {
     	// Constructor privado para evitar instanciación
